@@ -79,12 +79,15 @@ namespace Deathless
 
             On.HeroController.Awake += UpdateGlobalSettings;
 
-            ModHooks.AfterSavegameLoadHook += ConfigurePermadeathSetting;
+            On.HeroController.Awake += ConfigurePermadeathSetting;
 
         }
 
-        private void ConfigurePermadeathSetting(SaveGameData data)
+        private void ConfigurePermadeathSetting(On.HeroController.orig_Awake orig, HeroController self)
         {
+
+            orig(self);
+
             Log("Configuring PERMADEATH");
             Log("Permadeath: " + permadeath);
             Log("Permadeath subscribed: " + permadeathSubscribed);
