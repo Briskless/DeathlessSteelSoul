@@ -12,6 +12,12 @@ namespace Deathless
     {
         internal static Deathless Instance;
 
+        public Deathless() : base("DeathlessSteelSoul")
+        {
+            Instance = this;
+        }
+        public override string GetVersion() => "v0.1.0";
+
 
         private bool permadeath;
         private bool permadeathSubscribed;
