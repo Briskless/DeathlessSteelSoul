@@ -1,4 +1,5 @@
-﻿using Modding;
+﻿using GlobalEnums;
+using Modding;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Deathless
 
 
         private bool permadeath;
+        private bool permadeathSubscribed;
 
 
         //Create and initalize a local variable to be able to access the settings
@@ -71,6 +73,7 @@ namespace Deathless
 
             Log("Initialized");
 
+            permadeathSubscribed = false;
 
             this.permadeath = GS.permadeath;
 
@@ -82,7 +85,35 @@ namespace Deathless
 
         private void ConfigurePermadeathSetting(SaveGameData data)
         {
-            
+            Log("Configuring PERMADEATH");
+            Log("Permadeath: " + permadeath);
+            Log("Permadeath subscribed: " + permadeathSubscribed);
+
+            if (permadeath == true && permadeathSubscribed == false)
+            {
+                Log("Enabling PERMADEATH");
+                On.GameManager.GetCurrentMapZone += ForcePermadeath;
+            }
+            else if (permadeath == false && permadeathSubscribed == true)
+            {
+                Log("Removing PERMADEATH");
+                On.GameManager.GetCurrentMapZone -= ForcePermadeath;
+
+            }
+        }
+
+        private string ForcePermadeath(On.GameManager.orig_GetCurrentMapZone orig, GameManager self)
+        {
+
+
+            if (PlayerData.instance.health <= 0)
+            {
+                return "ABYSS";
+            }
+            else
+            {
+                return orig(self);
+            }
         }
 
         private void UpdateGlobalSettings(On.HeroController.orig_Awake orig, HeroController self)
