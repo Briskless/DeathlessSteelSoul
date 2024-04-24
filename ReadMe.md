@@ -1,3 +1,5 @@
-# Deathless
+# DeathlessSteelSoul
 
-A mod for the game Hollow Knight.
+A mod that forces permadeath in dream/godhome zones when on steel soul mode.
+
+Is toggleable via a menu option.
