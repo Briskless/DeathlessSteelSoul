@@ -102,12 +102,13 @@ namespace Deathless
             {
                 Log("Enabling PERMADEATH");
                 On.GameManager.GetCurrentMapZone += ForcePermadeath;
+                permadeathSubscribed = true;
             }
             else if (permadeath == false && permadeathSubscribed == true)
             {
                 Log("Removing PERMADEATH");
                 On.GameManager.GetCurrentMapZone -= ForcePermadeath;
-
+                permadeathSubscribed = false;
             }
         }
 
