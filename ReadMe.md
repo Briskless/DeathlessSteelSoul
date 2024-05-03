@@ -1,5 +1,5 @@
 # UnrestrictedSteelSoul
 
-A Hollow Knight mod that forces permadeath in dream/godhome zones when on steel soul mode.
+A Hollow Knight mod that enables permadeath in dream/godhome zones when playing in steel soul mode.
 
 Permadeath is toggleable via a menu option.
