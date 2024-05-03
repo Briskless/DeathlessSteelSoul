@@ -16,7 +16,7 @@ namespace Deathless
         {
             Instance = this;
         }
-        public override string GetVersion() => "v0.1.0";
+        public override string GetVersion() => "v0.1.1";
 
 
         private bool permadeath;
