@@ -12,7 +12,7 @@ namespace Deathless
     {
         internal static Deathless Instance;
 
-        public Deathless() : base("DeathlessSteelSoul")
+        public Deathless() : base("UnrestrictedSteelSoul")
         {
             Instance = this;
         }
