@@ -94,9 +94,6 @@ namespace Deathless
 
             orig(self);
 
-            Log("Configuring PERMADEATH");
-            Log("Permadeath: " + permadeath);
-            Log("Permadeath subscribed: " + permadeathSubscribed);
 
             if (permadeath == true && permadeathSubscribed == false)
             {
